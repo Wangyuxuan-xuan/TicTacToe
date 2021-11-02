@@ -7,4 +7,49 @@
     android:background="@drawable/winner_background"
     tools:context=".WinnerPage">
 
+    <Button
+        android:id="@+id/leaveGameButton"
+        android:layout_width="239dp"
+        android:layout_height="64dp"
+        android:layout_marginEnd="84dp"
+        android:layout_marginBottom="112dp"
+        android:onClick="setExitOnClick"
+        android:text="@string/leave_the_gameButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="415dp"
+        android:layout_height="198dp"
+        android:adjustViewBounds="true"
+        android:rotationX="0"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/new_congratulations" />
+
+    <TextView
+        android:id="@+id/textViewWinnerText"
+        android:layout_width="338dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="68dp"
+        android:text="@string/winnerMessage"
+        android:textAlignment="center"
+        android:textColor="@color/teal_200"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <Button
+        android:id="@+id/restartButton"
+        android:layout_width="239dp"
+        android:layout_height="64dp"
+        android:layout_marginEnd="84dp"
+        android:layout_marginBottom="52dp"
+        android:onClick="setRestartOnClick"
+        android:text="@string/restartButton"
+        app:layout_constraintBottom_toTopOf="@+id/leaveGameButton"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

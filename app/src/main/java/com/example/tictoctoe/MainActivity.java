@@ -79,6 +79,12 @@ public class MainActivity extends AppCompatActivity {
                 recordPlayerMove[squareNumber] = 0;
                 if (isSuccess()){
                         Toast.makeText(this, textViewPlayerName1.getText().toString()+" is the winner!", Toast.LENGTH_SHORT).show();
+                        Intent winnerIntent= new Intent(this,WinnerPage.class);
+                        String winner1 = textViewPlayerName1.getText().toString();
+                        winnerIntent.putExtra("winnerName",winner1);
+                    Log.d("textView",textViewPlayerName2.getText().toString());
+                        startActivity(winnerIntent);
+
                 }
                 setPlayerTern(1);
             }else {
@@ -87,6 +93,11 @@ public class MainActivity extends AppCompatActivity {
                 recordPlayerMove[squareNumber] = 1;
                 if (isSuccess()){
                     Toast.makeText(this, textViewPlayerName2.getText().toString()+" is the winner!", Toast.LENGTH_SHORT).show();
+                    Intent winnerIntent= new Intent(this,WinnerPage.class);
+                    String winner2 = textViewPlayerName2.getText().toString();
+                    winnerIntent.putExtra("winnerName",winner2);
+                    Log.d("textView",textViewPlayerName2.getText().toString());
+                    startActivity(winnerIntent);
                 }
                 setPlayerTern(0);
             }
@@ -101,10 +112,10 @@ public class MainActivity extends AppCompatActivity {
 
         for (int i = 0; i < successArrayCombination.size(); i++) {
             int[] currentCombination = successArrayCombination.get(i);
-            Log.d("isSuccess", Arrays.toString(currentCombination));
-            Log.d("isSuccess", String.valueOf(recordPlayerMove[currentCombination[0]]));
-            Log.d("isSuccess", String.valueOf(recordPlayerMove[currentCombination[1]]));
-            Log.d("isSuccess", String.valueOf(recordPlayerMove[currentCombination[2]]));
+//            Log.d("isSuccess", Arrays.toString(currentCombination));
+//            Log.d("isSuccess", String.valueOf(recordPlayerMove[currentCombination[0]]));
+//            Log.d("isSuccess", String.valueOf(recordPlayerMove[currentCombination[1]]));
+//            Log.d("isSuccess", String.valueOf(recordPlayerMove[currentCombination[2]]));
 
             if(recordPlayerMove[currentCombination[0]] == getPlayerTern()&&
                     recordPlayerMove[currentCombination[1]] == getPlayerTern() &&
@@ -127,7 +138,26 @@ public class MainActivity extends AppCompatActivity {
         successArrayCombination.add(new int[] {1,5,9});
         successArrayCombination.add(new int[] {3,5,7});
 
+        recordPlayerMove = new int[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
+
+        isSquareOccupiedArray = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        playerTern = 0;
     }
+
+    public void restartGame(){
+        square1.setImageResource(R.drawable.square_blue);
+        square2.setImageResource(R.drawable.square_blue);
+        square3.setImageResource(R.drawable.square_blue);
+        square4.setImageResource(R.drawable.square_blue);
+        square5.setImageResource(R.drawable.square_blue);
+        square6.setImageResource(R.drawable.square_blue);
+        square7.setImageResource(R.drawable.square_blue);
+        square8.setImageResource(R.drawable.square_blue);
+        square9.setImageResource(R.drawable.square_blue);
+
+
+    }
+
     public void setOnClickSquare1(View view){
         setPlayerAction(square1,1);
     }
