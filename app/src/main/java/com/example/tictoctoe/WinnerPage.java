@@ -32,12 +32,14 @@ public class WinnerPage extends AppCompatActivity {
     }
 
     public void setRestartOnClick(View view){
-        mainActivity.restartGame();
-        Intent intent = new Intent(this,MainActivity.class);
+
+        Intent intent = new Intent(this,LogPlayerName.class);
         startActivity(intent);
+        mainActivity.restartGame();
     }
 
     public void setExitOnClick(View view){
+        finish();
         System.exit(0);
     }
 }

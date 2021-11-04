@@ -89,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
                 setPlayerTern(1);
             }else {
                 imageView.setImageResource(R.drawable.cross_icon);
+
                 setSquareOccupied(squareNumber);
                 recordPlayerMove[squareNumber] = 1;
                 if (isSuccess()){
