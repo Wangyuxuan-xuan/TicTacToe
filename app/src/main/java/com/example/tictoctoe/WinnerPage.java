@@ -29,6 +29,7 @@ public class WinnerPage extends AppCompatActivity {
 
         winnerText.setText(getString(R.string.winnerMessage,winnerName));
 
+
     }
 
     public void setRestartOnClick(View view){

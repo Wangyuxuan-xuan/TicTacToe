@@ -15,7 +15,7 @@
         android:layout_marginBottom="16dp"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="16sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/imageView3"
         app:layout_constraintStart_toEndOf="@+id/textViewPlayerName1" />
 
@@ -145,7 +145,7 @@
         android:layout_marginBottom="16dp"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="16sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/imageView2"
         app:layout_constraintStart_toStartOf="parent" />
 
