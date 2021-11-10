@@ -6,5 +6,5 @@
     <string name="start_game">Start Game</string>
     <string name="winnerMessage">Player %s is the winner!</string>
     <string name="restartButton">Restart</string>
-    <string name="leave_the_gameButton">Leave the game</string>
+    <string name="Continue_the_game_button">Continue the game</string>
 </resources>

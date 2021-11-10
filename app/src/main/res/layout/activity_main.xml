@@ -26,7 +26,18 @@
         android:onClick="setOnClickSquare8"
         app:layout_constraintBottom_toTopOf="@+id/square5"
         app:layout_constraintStart_toEndOf="@+id/square7"
-        app:srcCompat="@drawable/square_blue"
+        app:srcCompat="@drawable/mysquare"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageView
+        android:id="@+id/icon8"
+        android:layout_width="127dp"
+        android:layout_height="127dp"
+        android:onClick="setOnClickSquare8"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/square5"
+        app:layout_constraintStart_toEndOf="@+id/square7"
+        app:srcCompat="@drawable/mysquare"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageView
@@ -38,7 +49,20 @@
         android:onClick="setOnClickSquare7"
         app:layout_constraintBottom_toTopOf="@+id/square4"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/square_blue"
+        app:srcCompat="@drawable/mysquare"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageView
+        android:id="@+id/icon7"
+        android:visibility="invisible"
+        android:layout_width="127dp"
+        android:layout_height="127dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="1dp"
+        android:onClick="setOnClickSquare7"
+        app:layout_constraintBottom_toTopOf="@+id/square4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/mysquare"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageView
@@ -49,7 +73,19 @@
         android:onClick="setOnClickSquare9"
         app:layout_constraintBottom_toTopOf="@+id/square6"
         app:layout_constraintStart_toEndOf="@+id/square8"
-        app:srcCompat="@drawable/square_blue"
+        app:srcCompat="@drawable/mysquare"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageView
+        android:id="@+id/icon9"
+        android:visibility="invisible"
+        android:layout_width="127dp"
+        android:layout_height="127dp"
+        android:layout_marginBottom="1dp"
+        android:onClick="setOnClickSquare9"
+        app:layout_constraintBottom_toTopOf="@+id/square6"
+        app:layout_constraintStart_toEndOf="@+id/square8"
+        app:srcCompat="@drawable/mysquare"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageView
@@ -59,7 +95,18 @@
         android:onClick="setOnClickSquare5"
         app:layout_constraintBottom_toTopOf="@+id/square2"
         app:layout_constraintStart_toEndOf="@+id/square4"
-        app:srcCompat="@drawable/square_blue"
+        app:srcCompat="@drawable/mysquare"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageView
+        android:id="@+id/icon5"
+        android:visibility="invisible"
+        android:layout_width="127dp"
+        android:layout_height="127dp"
+        android:onClick="setOnClickSquare5"
+        app:layout_constraintBottom_toTopOf="@+id/square2"
+        app:layout_constraintStart_toEndOf="@+id/square4"
+        app:srcCompat="@drawable/mysquare"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageView
@@ -70,7 +117,19 @@
         android:onClick="setOnClickSquare4"
         app:layout_constraintBottom_toTopOf="@+id/square1"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/square_blue"
+        app:srcCompat="@drawable/mysquare"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageView
+        android:id="@+id/icon4"
+        android:visibility="invisible"
+        android:layout_width="127dp"
+        android:layout_height="127dp"
+        android:layout_marginStart="15dp"
+        android:onClick="setOnClickSquare4"
+        app:layout_constraintBottom_toTopOf="@+id/square1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/mysquare"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageView
@@ -80,7 +139,18 @@
         android:onClick="setOnClickSquare6"
         app:layout_constraintBottom_toTopOf="@+id/square3"
         app:layout_constraintStart_toEndOf="@+id/square5"
-        app:srcCompat="@drawable/square_blue"
+        app:srcCompat="@drawable/mysquare"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageView
+        android:id="@+id/icon6"
+        android:visibility="invisible"
+        android:layout_width="127dp"
+        android:layout_height="127dp"
+        android:onClick="setOnClickSquare6"
+        app:layout_constraintBottom_toTopOf="@+id/square3"
+        app:layout_constraintStart_toEndOf="@+id/square5"
+        app:srcCompat="@drawable/mysquare"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageView
@@ -101,7 +171,9 @@
         android:layout_marginTop="72dp"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/cross_icon" />
+        app:srcCompat="@drawable/cross_icon"
+        android:alpha="0.8"/>
+
 
     <ImageView
         android:id="@+id/square2"
@@ -111,7 +183,19 @@
         android:onClick="setOnClickSquare2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/square1"
-        app:srcCompat="@drawable/square_blue"
+        app:srcCompat="@drawable/mysquare"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageView
+        android:id="@+id/icon2"
+        android:visibility="invisible"
+        android:layout_width="127dp"
+        android:layout_height="127dp"
+        android:layout_marginBottom="76dp"
+        android:onClick="setOnClickSquare2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/square1"
+        app:srcCompat="@drawable/mysquare"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageView
@@ -123,7 +207,20 @@
         android:onClick="setOnClickSquare1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/square_blue"
+        app:srcCompat="@drawable/mysquare"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageView
+        android:id="@+id/icon1"
+        android:visibility="invisible"
+        android:layout_width="127dp"
+        android:layout_height="127dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="76dp"
+        android:onClick="setOnClickSquare1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/mysquare"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageView
@@ -134,7 +231,19 @@
         android:onClick="setOnClickSquare3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/square2"
-        app:srcCompat="@drawable/square_blue"
+        app:srcCompat="@drawable/mysquare"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageView
+        android:id="@+id/icon3"
+        android:visibility="invisible"
+        android:layout_width="127dp"
+        android:layout_height="127dp"
+        android:layout_marginBottom="76dp"
+        android:onClick="setOnClickSquare3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/square2"
+        app:srcCompat="@drawable/mysquare"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView

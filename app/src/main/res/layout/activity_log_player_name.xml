@@ -8,6 +8,7 @@
     tools:context=".LogPlayerName">
 
     <TextView
+        android:gravity="center"
         android:id="@+id/userNameText"
         android:layout_width="384dp"
         android:layout_height="61dp"
@@ -23,10 +24,11 @@
 
     <EditText
         android:id="@+id/playerName1"
-        android:layout_width="wrap_content"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="100dp"
+        android:layout_marginEnd="64dp"
         android:layout_marginBottom="40dp"
+        android:background="@drawable/textfield_round"
         android:ems="10"
         android:hint="@string/player_one_name_hint"
         android:inputType="textPersonName"
@@ -39,10 +41,11 @@
 
     <EditText
         android:id="@+id/playerName2"
-        android:layout_width="wrap_content"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="100dp"
+        android:layout_marginEnd="64dp"
         android:layout_marginBottom="204dp"
+        android:background="@drawable/textfield_round"
         android:ems="10"
         android:hint="@string/player_two_name_hint"
         android:inputType="textPersonName"

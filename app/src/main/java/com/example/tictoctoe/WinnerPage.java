@@ -36,11 +36,12 @@ public class WinnerPage extends AppCompatActivity {
 
         Intent intent = new Intent(this,LogPlayerName.class);
         startActivity(intent);
-        mainActivity.restartGame();
+        //mainActivity.restartGame();
     }
 
-    public void setExitOnClick(View view){
-        finish();
-        System.exit(0);
+    public void setContinueOnClick(View view){
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
+        //mainActivity.restartGame();
     }
 }

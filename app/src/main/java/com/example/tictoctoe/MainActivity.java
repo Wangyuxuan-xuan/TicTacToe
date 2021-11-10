@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     TextView textViewPlayerName1;
     TextView textViewPlayerName2;
     ImageView square1,square2,square3,square4,square5,square6,square7,square8,square9;
-
+    ImageView icon1,icon2,icon3,icon4,icon5,icon6,icon7,icon8,icon9;
 
     private int recordPlayerMove[] = {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1};
 
@@ -50,10 +50,22 @@ public class MainActivity extends AppCompatActivity {
         square8 = findViewById(R.id.square8);
         square9 = findViewById(R.id.square9);
 
+        icon1 = findViewById(R.id.icon1);
+        icon2 = findViewById(R.id.icon2);
+        icon3 = findViewById(R.id.icon3);
+        icon4 = findViewById(R.id.icon4);
+        icon5 = findViewById(R.id.icon5);
+        icon6 = findViewById(R.id.icon6);
+        icon7 = findViewById(R.id.icon7);
+        icon8 = findViewById(R.id.icon8);
+        icon9 = findViewById(R.id.icon9);
+
+        restartGame();
 
         addCombinations(successArrayCombination);
         setTextPlayerName(playerName1,playerName2);
     }
+
 
     public void setTextPlayerName(String playerName1,String playerName2){
         textViewPlayerName1.setText(playerName1);
@@ -71,10 +83,14 @@ public class MainActivity extends AppCompatActivity {
         isSquareOccupiedArray[squareNumber] = 1;
     }
 
-    public void setPlayerAction(ImageView imageView,int squareNumber){
+    public void setPlayerAction(ImageView icon,int squareNumber){
         if (!isSquareOccupied(squareNumber)){
             if (getPlayerTern() == 0){
-                imageView.setImageResource(R.drawable.circle_icon);
+                icon.setImageResource(R.drawable.circle_icon);
+                icon.setVisibility(View.VISIBLE);
+                icon.setScaleX(0.8f);
+                icon.setScaleY(0.8f);
+
                 setSquareOccupied(squareNumber);
                 recordPlayerMove[squareNumber] = 0;
                 if (isSuccess()){
@@ -88,7 +104,10 @@ public class MainActivity extends AppCompatActivity {
                 }
                 setPlayerTern(1);
             }else {
-                imageView.setImageResource(R.drawable.cross_icon);
+                icon.setImageResource(R.drawable.cross_icon);
+                icon.setVisibility(View.VISIBLE);
+                icon.setScaleX(0.8f);
+                icon.setScaleY(0.8f);
 
                 setSquareOccupied(squareNumber);
                 recordPlayerMove[squareNumber] = 1;
@@ -146,53 +165,52 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void restartGame(){
-        square1.setImageResource(R.drawable.square_blue);
-        square2.setImageResource(R.drawable.square_blue);
-        square3.setImageResource(R.drawable.square_blue);
-        square4.setImageResource(R.drawable.square_blue);
-        square5.setImageResource(R.drawable.square_blue);
-        square6.setImageResource(R.drawable.square_blue);
-        square7.setImageResource(R.drawable.square_blue);
-        square8.setImageResource(R.drawable.square_blue);
-        square9.setImageResource(R.drawable.square_blue);
 
-
+        icon1.setVisibility(View.INVISIBLE);
+        icon2.setVisibility(View.INVISIBLE);
+        icon3.setVisibility(View.INVISIBLE);
+        icon4.setVisibility(View.INVISIBLE);
+        icon5.setVisibility(View.INVISIBLE);
+        icon6.setVisibility(View.INVISIBLE);
+        icon7.setVisibility(View.INVISIBLE);
+        icon8.setVisibility(View.INVISIBLE);
+        icon9.setVisibility(View.INVISIBLE);
     }
 
     public void setOnClickSquare1(View view){
-        setPlayerAction(square1,1);
+        setPlayerAction(icon1,1);
     }
 
     public void setOnClickSquare2(View view){
-        setPlayerAction(square2,2);
+        setPlayerAction(icon2,2);
     }
 
     public void setOnClickSquare3(View view){
-        setPlayerAction(square3,3);
+        setPlayerAction(icon3,3);
     }
 
     public void setOnClickSquare4(View view){
-        setPlayerAction(square4,4);
+        setPlayerAction(icon4,4);
     }
 
     public void setOnClickSquare5(View view){
-        setPlayerAction(square5,5);
+        setPlayerAction(icon5,5);
     }
 
     public void setOnClickSquare6(View view){
-        setPlayerAction(square6,6);
+        setPlayerAction(icon6,6);
     }
 
     public void setOnClickSquare7(View view){
-        setPlayerAction(square7,7);
+        setPlayerAction(icon7,7);
     }
 
     public void setOnClickSquare8(View view){
-        setPlayerAction(square8,8);
+        setPlayerAction(icon8,8);
     }
 
     public void setOnClickSquare9(View view){
-        setPlayerAction(square9,9);
+        setPlayerAction(icon9,9);
     }
 
 
