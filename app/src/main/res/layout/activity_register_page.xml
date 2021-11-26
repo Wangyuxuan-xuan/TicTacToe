@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/register_background"
+    tools:context=".DataManage.RegisterPage">
+
+
+    <TextView
+        android:id="@+id/textView_Register"
+        android:layout_width="280dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginBottom="88dp"
+        android:gravity="center"
+        android:text="@string/register_here"
+        android:textColor="@color/purple_700"
+        android:textSize="34sp"
+
+        app:layout_constraintBottom_toTopOf="@+id/editText_Email"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/editText_Email"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/textfield_round"
+        android:ems="10"
+        android:hint="@string/email_hint"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/editText_Username"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TextContrastCheck"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/editText_Username"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/textfield_round"
+        android:ems="10"
+        android:hint="@string/username_hint"
+        android:inputType="text"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/editText_Password"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TextContrastCheck"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/editText_Password"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginBottom="44dp"
+        android:background="@drawable/textfield_round"
+        android:ems="10"
+        android:hint="@string/password_hint"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_register"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TextContrastCheck,TextContrastCheck"
+        android:importantForAutofill="no" />
+
+    <Button
+        android:id="@+id/button_register"
+        android:layout_width="280dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginBottom="124dp"
+        android:onClick="setRegisterBtnOnClick"
+        android:text="@string/register_now"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_warringMessage"
+        android:layout_width="206dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginBottom="12dp"
+        android:textAllCaps="true"
+        android:textColor="@color/red"
+        app:layout_constraintBottom_toTopOf="@+id/editText_Email"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

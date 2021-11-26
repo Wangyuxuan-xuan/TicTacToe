@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.tictoctoe.DataManage.RegisterPage;
+
 public class LogPlayerName extends AppCompatActivity {
 
     EditText playerName1EditText;
@@ -31,6 +33,11 @@ public class LogPlayerName extends AppCompatActivity {
         Intent intent = new Intent(this,MainActivity.class);
         intent.putExtra("playerName1",playerName1);
         intent.putExtra("playerName2",playerName2);
+        startActivity(intent);
+    }
+
+    public void setOnLogInButtonClick(View view){
+        Intent intent = new Intent(this, RegisterPage.class);
         startActivity(intent);
     }
 

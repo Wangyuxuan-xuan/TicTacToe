@@ -44,7 +44,7 @@
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="64dp"
-        android:layout_marginBottom="204dp"
+        android:layout_marginBottom="244dp"
         android:background="@drawable/textfield_round"
         android:ems="10"
         android:hint="@string/player_two_name_hint"
@@ -60,10 +60,35 @@
         android:id="@+id/startGameButton"
         android:layout_width="206dp"
         android:layout_height="52dp"
-        android:layout_marginTop="48dp"
         android:layout_marginEnd="100dp"
+        android:layout_marginBottom="80dp"
         android:onClick="setOnStartGameButtonClick"
         android:text="@string/start_game"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="52dp"
+        android:text="@string/unlock_more_features"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/playerName2" />
+
+    <TextView
+        android:id="@+id/textView_logIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="72dp"
+        android:onClick="setOnLogInButtonClick"
+        android:text="@string/log_in_or_register"
+        android:textColor="@color/white"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/playerName2"
+        tools:ignore="TouchTargetSizeCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>

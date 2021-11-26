@@ -7,4 +7,12 @@
     <string name="winnerMessage">Player %s is the winner!</string>
     <string name="restartButton">Restart</string>
     <string name="Continue_the_game_button">Continue the game</string>
+    <string name="email_hint">Email</string>
+    <string name="username_hint">Username</string>
+    <string name="password_hint">Password</string>
+    <string name="register_now">Register now!</string>
+    <string name="register_here">Register Here!</string>
+    <string name="warning">* All fields required!</string>
+    <string name="log_in_or_register"><u>Log in Or Register here!</u></string>
+    <string name="unlock_more_features">Wanna Unlock more features?</string>
 </resources>

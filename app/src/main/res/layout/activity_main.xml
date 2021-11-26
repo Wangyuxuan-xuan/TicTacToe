@@ -172,7 +172,7 @@
         app:layout_constraintStart_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/cross_icon"
-        android:alpha="0.8"/>
+        android:alpha="1.0"/>
 
 
     <ImageView
