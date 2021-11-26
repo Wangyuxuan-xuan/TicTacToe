@@ -15,4 +15,7 @@
     <string name="warning">* All fields required!</string>
     <string name="log_in_or_register"><u>Log in Or Register here!</u></string>
     <string name="unlock_more_features">Wanna Unlock more features?</string>
+
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
 </resources>
