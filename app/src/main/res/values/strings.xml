@@ -18,4 +18,14 @@
 
     <string name="nav_open">Open</string>
     <string name="nav_close">Close</string>
+    <string name="changeBg">Customise your background here !</string>
+
+    <string name="title">Cities of Hungary</string>
+    <string name="save">Save</string>
+    <string-array name="Background_array">
+        <item>image1</item>
+        <item>image2</item>
+        <item>image3</item>
+        <item>image4</item>
+    </string-array>
 </resources>
