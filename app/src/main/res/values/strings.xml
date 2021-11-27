@@ -22,6 +22,10 @@
 
     <string name="title">Cities of Hungary</string>
     <string name="save">Save</string>
+    <string name="log_in_here"><u>Already have an account? Login in Here !</u></string>
+    <string name="login_in">Login in</string>
+    <string name="register_here_long"><u>Don\'t have an account yet? Register here !</u></string>
+    <string name="login_here">Login Here!</string>
     <string-array name="Background_array">
         <item>image1</item>
         <item>image2</item>

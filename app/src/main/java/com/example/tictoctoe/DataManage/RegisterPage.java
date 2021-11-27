@@ -21,19 +21,23 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import java.util.Arrays;
 
 import java.util.ArrayList;
 
 public class RegisterPage extends AppCompatActivity {
-    ArrayList<Users> arrayList = new ArrayList<Users>();
+    ArrayList<Users> arrayListUsers = new ArrayList<Users>();
     EditText editTextEmail;
-    EditText editTextUsername;
+
     EditText editTextPassword;
-    Button buttonRegister;
+    Button registerBtn;
     TextView warningMsg;
     Button getData;
     SharedPreferences sharedPreferences;
+    TextView loginText;
+    TextView registerText;
+    Button loginBtn;
+    TextView switchToLogin;
+    TextView switchToRegister;
 
     ProgressDialog progressDialog;
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://friendschat-15843-default-rtdb.europe-west1.firebasedatabase.app/");
@@ -47,10 +51,15 @@ public class RegisterPage extends AppCompatActivity {
         setContentView(R.layout.activity_register_page);
 
         editTextEmail = findViewById(R.id.editText_Email);
-        editTextUsername = findViewById(R.id.editText_Username);
         editTextPassword = findViewById(R.id.editText_Password);
-        buttonRegister = findViewById(R.id.button_register);
+
         warningMsg = findViewById(R.id.textView_warringMessage);
+        loginText = findViewById(R.id.textView_logIn_RegisterPage);
+        registerText = findViewById(R.id.textView_Register);
+        loginBtn = findViewById(R.id.button_login);
+        registerBtn = findViewById(R.id.button_register);
+        switchToLogin = findViewById(R.id.textView_switchToLogin);
+        switchToRegister = findViewById(R.id.textView_switchToRegister);
 
         progressDialog = new ProgressDialog(this);
         getData = findViewById(R.id.button_getData);
@@ -59,33 +68,78 @@ public class RegisterPage extends AppCompatActivity {
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Loading");
 
-//        //check if user already logged in
-//        if(!StoreData.getEmailData(this).isEmpty()){
-//            Intent intent = new Intent(RegisterPage.this,MainActivity.class);
-//            intent.putExtra("email",StoreData.getEmailData(this));
-//            intent.putExtra("username",StoreData.getUsernameData(this));
-//            intent.putExtra("password","");
-//            startActivity(intent);
-//            finish();
-//        }
-
         sharedPreferences = getSharedPreferences(sharedPrefFileName,MODE_PRIVATE);
 
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt(USER_ID_KEY, userID);
+        editor.apply();
+    }
 
 
+    public void setLoginBtnOnClick(View view){
+        progressDialog.show();
+
+        String email = editTextEmail.getText().toString();
+        String password = editTextPassword.getText().toString();
+
+        if (email.isEmpty() || password.isEmpty()){
+            progressDialog.dismiss();
+            warningMsg.setText(getString(R.string.warning));
+        }else {
+
+            databaseReference.addValueEventListener(new ValueEventListener() {
+                Users user0;
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    progressDialog.dismiss();
+                    for(DataSnapshot userSnapshot : snapshot.getChildren()){
+
+                        user0 = userSnapshot.getValue(Users.class);
+                        arrayListUsers.add(user0);
+                        //Toast.makeText(RegisterPage.this, user0.email+"   "+user0.password, Toast.LENGTH_SHORT).show();
+
+                        //Log.d("user_data",arrayList.get(0).email+"   "+arrayList.get(0).password);
+                    }
+                    Log.d("user_data",user0.email+"   "+user0.password);
+                    Log.d("user_data", arrayListUsers.size()+"");
+                   // Log.d("user_data", arrayListUsers.get(0).email+ arrayListUsers.get(1).email+ arrayListUsers.get(2).email);
+
+
+                    for (int i = 0; i < arrayListUsers.size(); i++) {
+                        if(email.equals(arrayListUsers.get(i).email)){
+                            if(password.equals(arrayListUsers.get(i).password)){
+                                Toast.makeText(RegisterPage.this, "Login Success !", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(RegisterPage.this,MainActivity.class);
+                                startActivity(intent);
+                            }else Toast.makeText(RegisterPage.this, "Email or Password is wrong !", Toast.LENGTH_SHORT).show();
+                        }else Toast.makeText(RegisterPage.this, "No such Email !", Toast.LENGTH_SHORT).show();
+                    }
+                    arrayListUsers.clear();
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+
+        }
+    }
 
     public void  setRegisterBtnOnClick(View view){
 
         progressDialog.show();
 
         String email = editTextEmail.getText().toString();
-        String username = editTextEmail.getText().toString();
         String password = editTextPassword.getText().toString();
 
 
-        if (email.isEmpty() || username.isEmpty() || password.isEmpty()){
+        if (email.isEmpty() || password.isEmpty()){
             progressDialog.dismiss();
             warningMsg.setText(getString(R.string.warning));
         }else {
@@ -119,11 +173,10 @@ public class RegisterPage extends AppCompatActivity {
 //                        StoreData.saveEmailData(email,RegisterPage.this);
 //                        StoreData.saveUsernameData(username,RegisterPage.this);
 
-                        Toast.makeText(RegisterPage.this, "success !", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterPage.this, "Register success !", Toast.LENGTH_SHORT).show();
 
                         Intent intent = new Intent(RegisterPage.this, MainActivity.class);
                         intent.putExtra("email",email);
-                        intent.putExtra("username",username);
                         intent.putExtra("password",password);
                         startActivity(intent);
                         finish();
@@ -155,15 +208,15 @@ public class RegisterPage extends AppCompatActivity {
                 for(DataSnapshot userSnapshot : snapshot.getChildren()){
 
                     user0 = userSnapshot.getValue(Users.class);
-                    arrayList.add(user0);
+                    arrayListUsers.add(user0);
                     //Toast.makeText(RegisterPage.this, user0.email+"   "+user0.password, Toast.LENGTH_SHORT).show();
 
 
                     //Log.d("user_data",arrayList.get(0).email+"   "+arrayList.get(0).password);
                 }
                 Log.d("user_data",user0.email+"   "+user0.password);
-                Log.d("user_data",arrayList.size()+"");
-                Log.d("user_data",arrayList.get(0).email+arrayList.get(1).email+arrayList.get(2).email);
+                Log.d("user_data", arrayListUsers.size()+"");
+                Log.d("user_data", arrayListUsers.get(0).email+ arrayListUsers.get(1).email+ arrayListUsers.get(2).email);
             }
 
             @Override
@@ -174,12 +227,24 @@ public class RegisterPage extends AppCompatActivity {
     }
 
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt(USER_ID_KEY, userID);
-        editor.apply();
+
+
+    public void setSwitchToRegisterOnClick(View view){
+        loginText.setVisibility(View.INVISIBLE);
+        loginBtn.setVisibility(View.INVISIBLE);
+        switchToRegister.setVisibility(View.INVISIBLE);
+        registerText.setVisibility(View.VISIBLE);
+        registerBtn.setVisibility(View.VISIBLE);
+        switchToLogin.setVisibility(View.VISIBLE);
+    }
+
+    public void setSwitchToLoginOnClick(View view){
+        loginText.setVisibility(View.VISIBLE);
+        loginBtn.setVisibility(View.VISIBLE);
+        switchToRegister.setVisibility(View.VISIBLE);
+        registerText.setVisibility(View.INVISIBLE);
+        registerBtn.setVisibility(View.INVISIBLE);
+        switchToLogin.setVisibility(View.INVISIBLE);
     }
 
 }
