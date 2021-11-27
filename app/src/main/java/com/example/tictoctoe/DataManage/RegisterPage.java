@@ -25,9 +25,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class RegisterPage extends AppCompatActivity {
-    ArrayList<Users> arrayListUsers = new ArrayList<Users>();
-    EditText editTextEmail;
 
+    EditText editTextEmail;
     EditText editTextPassword;
     Button registerBtn;
     TextView warningMsg;
@@ -39,6 +38,8 @@ public class RegisterPage extends AppCompatActivity {
     TextView switchToLogin;
     TextView switchToRegister;
 
+    ArrayList<Users> arrayListUsers = new ArrayList<Users>();
+    MainActivity mainActivity = new MainActivity();
     ProgressDialog progressDialog;
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://friendschat-15843-default-rtdb.europe-west1.firebasedatabase.app/");
 
@@ -114,10 +115,12 @@ public class RegisterPage extends AppCompatActivity {
                         if(email.equals(arrayListUsers.get(i).email)){
                             if(password.equals(arrayListUsers.get(i).password)){
                                 Toast.makeText(RegisterPage.this, "Login Success !", Toast.LENGTH_SHORT).show();
+                                mainActivity.setLoginStatus(true);
                                 Intent intent = new Intent(RegisterPage.this,MainActivity.class);
+                                intent.putExtra("loginStatus",true);
                                 startActivity(intent);
                             }else Toast.makeText(RegisterPage.this, "Email or Password is wrong !", Toast.LENGTH_SHORT).show();
-                        }else Toast.makeText(RegisterPage.this, "No such Email !", Toast.LENGTH_SHORT).show();
+                        }//else {Toast.makeText(RegisterPage.this, "No such Email !", Toast.LENGTH_SHORT).show();}
                     }
                     arrayListUsers.clear();
                 }
@@ -161,21 +164,11 @@ public class RegisterPage extends AppCompatActivity {
                         databaseReference.child("users"+String.valueOf(userID)).setValue(user);
                         userID++;
 
-
-
-//                        String emailGet =  snapshot.child("users").child(email).getKey();
-//                        String passwd = "";
-                        //String passwd = snapshot.child("users").getChildren();
-//                        for (DataSnapshot childSnapshot : snapshot.getChildren()) {
-//                            passwd = (String) childSnapshot.child(email).getValue();
-//                        }
-//
-//                        StoreData.saveEmailData(email,RegisterPage.this);
-//                        StoreData.saveUsernameData(username,RegisterPage.this);
-
                         Toast.makeText(RegisterPage.this, "Register success !", Toast.LENGTH_SHORT).show();
+                        mainActivity.setLoginStatus(true);
 
                         Intent intent = new Intent(RegisterPage.this, MainActivity.class);
+                        intent.putExtra("loginStatus",true);
                         intent.putExtra("email",email);
                         intent.putExtra("password",password);
                         startActivity(intent);

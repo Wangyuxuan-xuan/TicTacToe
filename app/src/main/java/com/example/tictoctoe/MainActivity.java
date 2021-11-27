@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private int playerTern = 0;
     private ArrayList<int[]> successArrayCombination = new ArrayList<int[]>();
 
-
+    private Boolean loginStatus = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -142,6 +142,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             setBackgroundImage(bgImg);
             storedBackground = bgImg;
         }
+//--------------------------------Manage Login Status---------------------------------------------
+        Intent loginIntent = getIntent();
+        loginStatus = loginIntent.getBooleanExtra("loginStatus",false);
+        if (loginStatus){
+            changeBgBtn.setVisibility(View.VISIBLE);
+        }else changeBgBtn.setVisibility(View.INVISIBLE);
+
 //--------------------------------Logic Part---------------------------------------------
         restartGame();
 
@@ -375,4 +382,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
+    public Boolean getLoginStatus() {
+        return loginStatus;
+    }
+
+    public void setLoginStatus(Boolean loginStatus) {
+        this.loginStatus = loginStatus;
+    }
 }
