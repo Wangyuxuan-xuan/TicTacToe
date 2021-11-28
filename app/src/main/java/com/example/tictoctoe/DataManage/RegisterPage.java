@@ -44,8 +44,9 @@ public class RegisterPage extends AppCompatActivity {
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://friendschat-15843-default-rtdb.europe-west1.firebasedatabase.app/");
 
     final String USER_ID_KEY = "userID";
+    final String LOGIN_STATUS_KEY = "login_status";
     private final String sharedPrefFileName = "com.example.tictoctoe.StoredBackgroundPref";
-    int userID = 2;
+    int userID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,7 +71,7 @@ public class RegisterPage extends AppCompatActivity {
         progressDialog.setMessage("Loading");
 
         sharedPreferences = getSharedPreferences(sharedPrefFileName,MODE_PRIVATE);
-
+        userID = sharedPreferences.getInt(USER_ID_KEY,0);
     }
 
     @Override
@@ -102,9 +103,6 @@ public class RegisterPage extends AppCompatActivity {
 
                         user0 = userSnapshot.getValue(Users.class);
                         arrayListUsers.add(user0);
-                        //Toast.makeText(RegisterPage.this, user0.email+"   "+user0.password, Toast.LENGTH_SHORT).show();
-
-                        //Log.d("user_data",arrayList.get(0).email+"   "+arrayList.get(0).password);
                     }
                     Log.d("user_data",user0.email+"   "+user0.password);
                     Log.d("user_data", arrayListUsers.size()+"");
@@ -117,7 +115,12 @@ public class RegisterPage extends AppCompatActivity {
                                 Toast.makeText(RegisterPage.this, "Login Success !", Toast.LENGTH_SHORT).show();
                                 mainActivity.setLoginStatus(true);
                                 Intent intent = new Intent(RegisterPage.this,MainActivity.class);
-                                intent.putExtra("loginStatus",true);
+
+                                SharedPreferences.Editor editor = sharedPreferences.edit();
+                                editor.putBoolean(LOGIN_STATUS_KEY,true);
+                                editor.apply();
+
+                                //intent.putExtra("loginStatus",true);
                                 startActivity(intent);
                             }else Toast.makeText(RegisterPage.this, "Email or Password is wrong !", Toast.LENGTH_SHORT).show();
                         }//else {Toast.makeText(RegisterPage.this, "No such Email !", Toast.LENGTH_SHORT).show();}
@@ -165,10 +168,15 @@ public class RegisterPage extends AppCompatActivity {
                         userID++;
 
                         Toast.makeText(RegisterPage.this, "Register success !", Toast.LENGTH_SHORT).show();
-                        mainActivity.setLoginStatus(true);
+                        //mainActivity.setLoginStatus(true);
 
                         Intent intent = new Intent(RegisterPage.this, MainActivity.class);
-                        intent.putExtra("loginStatus",true);
+
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putBoolean(LOGIN_STATUS_KEY,true);
+                        editor.apply();
+
+                        //intent.putExtra("loginStatus",true);
                         intent.putExtra("email",email);
                         intent.putExtra("password",password);
                         startActivity(intent);

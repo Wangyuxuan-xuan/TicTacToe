@@ -41,11 +41,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     TextView textViewPlayerName1;
     TextView textViewPlayerName2;
     Button changeBgBtn;
+    Button signOutBtn;
     ImageView square1,square2,square3,square4,square5,square6,square7,square8,square9;
     ImageView icon1,icon2,icon3,icon4,icon5,icon6,icon7,icon8,icon9;
 
     final int DEFAULT_VALUE = 0;
     final String STORED_BG_KEY = "backgroundImageID";
+    final String LOGIN_STATUS_KEY = "login_status";
     int storedBackground;
     SharedPreferences sharedPreferences;
     private final String sharedPrefFileName = "com.example.tictoctoe.StoredBackgroundPref";
@@ -105,6 +107,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         textViewPlayerName1 = findViewById(R.id.textViewPlayerName1);
         textViewPlayerName2 = findViewById(R.id.textViewPlayerName2);
         changeBgBtn = findViewById(R.id.button_changeBg);
+        signOutBtn = findViewById(R.id.button_signOut);
         mainPageBackground = (ConstraintLayout)findViewById(R.id.constraintLayout_background);
 
         square1 = findViewById(R.id.square1);
@@ -143,11 +146,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             storedBackground = bgImg;
         }
 //--------------------------------Manage Login Status---------------------------------------------
-        Intent loginIntent = getIntent();
-        loginStatus = loginIntent.getBooleanExtra("loginStatus",false);
+
+        loginStatus = sharedPreferences.getBoolean(LOGIN_STATUS_KEY,false);
         if (loginStatus){
             changeBgBtn.setVisibility(View.VISIBLE);
-        }else changeBgBtn.setVisibility(View.INVISIBLE);
+            signOutBtn.setVisibility(View.VISIBLE);
+        }else {
+            changeBgBtn.setVisibility(View.INVISIBLE);
+            signOutBtn.setVisibility(View.INVISIBLE);
+        }
 
 //--------------------------------Logic Part---------------------------------------------
         restartGame();
@@ -166,6 +173,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt(STORED_BG_KEY, storedBackground);
         editor.apply();
+    }
+
+    public void setSignOutBtnOnClick(View view){
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean(LOGIN_STATUS_KEY, false);
+        editor.apply();
+
+        changeBgBtn.setVisibility(View.INVISIBLE);
+        signOutBtn.setVisibility(View.INVISIBLE);
+        Toast.makeText(MainActivity.this, "Now you signed out", Toast.LENGTH_SHORT).show();
     }
 
     /**
