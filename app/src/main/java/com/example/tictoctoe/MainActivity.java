@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -15,7 +14,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -54,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private int recordPlayerMove[] = {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1};
 
-    private int isSquareOccupiedArray[] = {0,0,0,0,0,0,0,0,0,0};
+    private int isSquareOccupiedArray[] = {-1,0,0,0,0,0,0,0,0,0};
     private int playerTern = 0;
     private ArrayList<int[]> successArrayCombination = new ArrayList<int[]>();
 
@@ -260,6 +258,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     public void setPlayerAction(ImageView icon,int squareNumber){
+
+
         if (!isSquareOccupied(squareNumber)){
             if (getPlayerTern() == 0){
                 icon.setImageResource(R.drawable.circle_icon);
@@ -279,7 +279,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 }
                 setPlayerTern(1);
-            }else {
+            }
+            else {
                 icon.setImageResource(R.drawable.cross_icon);
                 icon.setVisibility(View.VISIBLE);
                 icon.setScaleX(0.8f);
@@ -301,7 +302,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Toast.makeText(this, "occupied", Toast.LENGTH_SHORT).show();
         }
 
-        Log.d("recordPlayerMove", Arrays.toString(recordPlayerMove));
+        Log.d("check Draw",String.valueOf(isDraw()));
+        if(isDraw()){
+
+            Toast.makeText(this, "It is a Draw !", Toast.LENGTH_SHORT).show();
+            Intent winnerIntent= new Intent(this,WinnerPage.class);
+            winnerIntent.putExtra("isDraw", true);
+            startActivity(winnerIntent);
+        }
+        Log.d("isSquareOccupiedArray", Arrays.toString(isSquareOccupiedArray));
+        ///Log.d("recordPlayerMove", Arrays.toString(recordPlayerMove));
     }
 
     public boolean isSuccess(){
@@ -324,6 +334,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return false;
     }
 
+    public boolean isDraw(){
+        for (int i : isSquareOccupiedArray) {
+            if (i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
     public void addCombinations(ArrayList<int[]> successArrayCombination){
         successArrayCombination.add(new int[] {7,8,9});
         successArrayCombination.add(new int[] {4,5,6});
@@ -336,7 +356,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         recordPlayerMove = new int[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
 
-        isSquareOccupiedArray = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        isSquareOccupiedArray = new int[]{-1, 0, 0, 0, 0, 0, 0, 0, 0, 0};
         playerTern = 0;
     }
 

@@ -5,6 +5,7 @@
     <string name="player_two_name_hint">Player Two Name</string>
     <string name="start_game">Start Game</string>
     <string name="winnerMessage">Player %s is the winner!</string>
+    <string name="drawMsg">It is a draw !</string>
     <string name="restartButton">Restart</string>
     <string name="Continue_the_game_button">Continue the game</string>
     <string name="email_hint">Email</string>
@@ -20,7 +21,7 @@
     <string name="nav_close">Close</string>
     <string name="changeBg">Customise your background here !</string>
 
-    <string name="title">Cities of Hungary</string>
+    <string name="title">You can choose the background you like !</string>
     <string name="save">Save</string>
     <string name="log_in_here"><u>Already have an account? Login in Here !</u></string>
     <string name="login_in">Login in</string>

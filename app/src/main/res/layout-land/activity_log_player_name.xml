@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/game_background"
+    tools:context=".LogPlayerName">
+
+    <TextView
+        android:id="@+id/userNameText"
+        android:layout_width="282dp"
+        android:layout_height="88dp"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="432dp"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text="@string/usernametext"
+        android:textAlignment="center"
+        android:textColor="@color/purple_700"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/playerName1"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="68dp"
+        android:layout_marginBottom="48dp"
+        android:background="@drawable/textfield_round"
+        android:ems="10"
+        android:hint="@string/player_one_name_hint"
+        android:inputType="textPersonName"
+        android:maxLines="1"
+        android:minHeight="48dp"
+        android:textColorHint="@color/purple_200"
+        app:layout_constraintBottom_toTopOf="@+id/playerName2"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="TextContrastCheck" />
+
+    <EditText
+        android:id="@+id/playerName2"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="68dp"
+        android:layout_marginBottom="204dp"
+        android:background="@drawable/textfield_round"
+        android:ems="10"
+        android:hint="@string/player_two_name_hint"
+        android:inputType="textPersonName"
+        android:maxLines="1"
+        android:minHeight="48dp"
+        android:textColorHint="@color/purple_200"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="TextContrastCheck" />
+
+    <Button
+        android:id="@+id/startGameButton"
+        android:layout_width="206dp"
+        android:layout_height="52dp"
+        android:layout_marginEnd="304dp"
+        android:layout_marginBottom="48dp"
+        android:onClick="setOnStartGameButtonClick"
+        android:text="@string/start_game"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="52dp"
+        android:text="@string/unlock_more_features"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/playerName2" />
+
+    <TextView
+        android:id="@+id/textView_logIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="72dp"
+        android:onClick="setOnLogInButtonClick"
+        android:text="@string/log_in_or_register"
+        android:textColor="@color/white"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/playerName2"
+        tools:ignore="TouchTargetSizeCheck" />
+</androidx.constraintlayout.widget.ConstraintLayout>

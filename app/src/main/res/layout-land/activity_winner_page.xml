@@ -7,17 +7,6 @@
     android:background="@drawable/winner_background"
     tools:context=".WinnerPage">
 
-    <Button
-        android:id="@+id/leaveGameButton"
-        android:layout_width="239dp"
-        android:layout_height="64dp"
-        android:layout_marginEnd="84dp"
-        android:layout_marginBottom="112dp"
-        android:onClick="setContinueOnClick"
-        android:text="@string/Continue_the_game_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/imageView"
 
@@ -33,12 +22,12 @@
         android:layout_width="338dp"
         android:layout_height="88dp"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="44dp"
+        android:gravity="center"
         android:text="@string/winnerMessage"
         android:textAlignment="center"
         android:textColor="@color/teal_200"
         android:textSize="36sp"
-        android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
@@ -46,10 +35,21 @@
         android:id="@+id/restartButton"
         android:layout_width="239dp"
         android:layout_height="64dp"
-        android:layout_marginEnd="84dp"
-        android:layout_marginBottom="52dp"
+        android:layout_marginEnd="72dp"
+        android:layout_marginBottom="48dp"
         android:onClick="setRestartOnClick"
         android:text="@string/restartButton"
         app:layout_constraintBottom_toTopOf="@+id/leaveGameButton"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/leaveGameButton"
+        android:layout_width="239dp"
+        android:layout_height="64dp"
+        android:layout_marginEnd="72dp"
+        android:layout_marginBottom="24dp"
+        android:onClick="setContinueOnClick"
+        android:text="@string/Continue_the_game_button"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
