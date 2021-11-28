@@ -22,7 +22,7 @@ public class WinnerPage extends AppCompatActivity {
 
         Intent winnerIntent = getIntent();   //not new intent but get intent!
         String winnerName = winnerIntent.getStringExtra("winnerName");
-        Boolean isdraw = winnerIntent.getBooleanExtra("isDraw",false);
+        boolean isdraw = winnerIntent.getBooleanExtra("isDraw",false);
 
         winnerText = findViewById(R.id.textViewWinnerText);
         restartButton = findViewById(R.id.restartButton);

@@ -161,7 +161,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setTextPlayerName(playerName1,playerName2);
 
 
+        if(savedInstanceState != null){
+            recordPlayerMove = savedInstanceState.getIntArray("recordPlayerMove");
+            isSquareOccupiedArray = savedInstanceState.getIntArray("isSquareOccupiedArray");
 
+            icon1.setVisibility(savedInstanceState.getInt("icon1Visibility"));
+            icon2.setVisibility(savedInstanceState.getInt("icon2Visibility"));
+            icon3.setVisibility(savedInstanceState.getInt("icon3Visibility"));
+            icon4.setVisibility(savedInstanceState.getInt("icon4Visibility"));
+            icon5.setVisibility(savedInstanceState.getInt("icon5Visibility"));
+            icon6.setVisibility(savedInstanceState.getInt("icon6Visibility"));
+            icon7.setVisibility(savedInstanceState.getInt("icon7Visibility"));
+            icon8.setVisibility(savedInstanceState.getInt("icon8Visibility"));
+            icon9.setVisibility(savedInstanceState.getInt("icon9Visibility"));
+
+            ImageView imageViews[] ={null,icon1,icon2,icon3,icon4,icon5,icon6,icon7,icon8,icon9};
+            for (int i = 1 ; i < recordPlayerMove.length; i++) {
+                if(recordPlayerMove[i] == 0){
+                    imageViews[i].setImageResource(R.drawable.circle_icon);
+                }
+                if(recordPlayerMove[i] == 1){
+                    imageViews[i].setImageResource(R.drawable.cross_icon);
+                }
+            }
+        }
 
     }
 
@@ -172,6 +195,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         editor.putInt(STORED_BG_KEY, storedBackground);
         editor.apply();
     }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+
+        outState.putIntArray("recordPlayerMove",recordPlayerMove);
+        outState.putIntArray("isSquareOccupiedArray",isSquareOccupiedArray);
+
+        outState.putInt("icon1Visibility",icon1.getVisibility());
+        outState.putInt("icon2Visibility",icon2.getVisibility());
+        outState.putInt("icon3Visibility",icon3.getVisibility());
+        outState.putInt("icon4Visibility",icon4.getVisibility());
+        outState.putInt("icon5Visibility",icon5.getVisibility());
+        outState.putInt("icon6Visibility",icon6.getVisibility());
+        outState.putInt("icon7Visibility",icon7.getVisibility());
+        outState.putInt("icon8Visibility",icon8.getVisibility());
+        outState.putInt("icon9Visibility",icon9.getVisibility());
+
+        //outState.putInt("iconImageResource",R.);
+    }
+
+
 
     public void setSignOutBtnOnClick(View view){
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -257,11 +303,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         isSquareOccupiedArray[squareNumber] = 1;
     }
 
+
     public void setPlayerAction(ImageView icon,int squareNumber){
 
 
         if (!isSquareOccupied(squareNumber)){
             if (getPlayerTern() == 0){
+
+
                 icon.setImageResource(R.drawable.circle_icon);
                 icon.setVisibility(View.VISIBLE);
                 icon.setScaleX(0.8f);
@@ -281,6 +330,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 setPlayerTern(1);
             }
             else {
+
+
                 icon.setImageResource(R.drawable.cross_icon);
                 icon.setVisibility(View.VISIBLE);
                 icon.setScaleX(0.8f);
