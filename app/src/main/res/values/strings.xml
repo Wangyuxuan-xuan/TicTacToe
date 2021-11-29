@@ -29,9 +29,12 @@
     <string name="login_here">Login Here!</string>
     <string name="sign_out">Sign out</string>
     <string-array name="Background_array">
-        <item>image1</item>
-        <item>image2</item>
-        <item>image3</item>
-        <item>image4</item>
+        <item>wallpaper 1</item>
+        <item>wallpaper 2</item>
+        <item>wallpaper 3</item>
+        <item>main background</item>
+        <item>game background</item>
+        <item>wild</item>
+        <item>battlefield1</item>
     </string-array>
 </resources>

@@ -160,7 +160,6 @@ public class RegisterPage extends AppCompatActivity {
                         Toast.makeText(RegisterPage.this, "Email already registered!", Toast.LENGTH_SHORT).show();
 
                     }else {
-                        //databaseReference.child("users").child(email).setValue(username);
                         Users user = new Users(email,password);
 
                         userID = sharedPreferences.getInt(USER_ID_KEY,0);
@@ -210,10 +209,6 @@ public class RegisterPage extends AppCompatActivity {
 
                     user0 = userSnapshot.getValue(Users.class);
                     arrayListUsers.add(user0);
-                    //Toast.makeText(RegisterPage.this, user0.email+"   "+user0.password, Toast.LENGTH_SHORT).show();
-
-
-                    //Log.d("user_data",arrayList.get(0).email+"   "+arrayList.get(0).password);
                 }
                 Log.d("user_data",user0.email+"   "+user0.password);
                 Log.d("user_data", arrayListUsers.size()+"");

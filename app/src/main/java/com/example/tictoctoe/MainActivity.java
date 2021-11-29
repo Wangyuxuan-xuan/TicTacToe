@@ -78,12 +78,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-       //NavigationView navigationView = myNavDrawer;
-//        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-//
-//       fragmentTransaction.replace(R.id.fragment_Container,
-//                new ProfileFragment()).commit();
-//        navigationView.setCheckedItem(R.id.nav_profile);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -131,6 +125,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         sharedPreferences = getSharedPreferences(sharedPrefFileName,MODE_PRIVATE);
         storedBackground = sharedPreferences.getInt(STORED_BG_KEY,0);
 
+        //setBackgroundImage(R.drawable.main_background);
         if (storedBackground == DEFAULT_VALUE){
             setBackgroundImage(R.drawable.main_background);
         }else {
@@ -160,7 +155,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         addCombinations(successArrayCombination);
         setTextPlayerName(playerName1,playerName2);
 
-
+//--------------------------------savedInstanceState---------------------------------------------
         if(savedInstanceState != null){
             recordPlayerMove = savedInstanceState.getIntArray("recordPlayerMove");
             isSquareOccupiedArray = savedInstanceState.getIntArray("isSquareOccupiedArray");
