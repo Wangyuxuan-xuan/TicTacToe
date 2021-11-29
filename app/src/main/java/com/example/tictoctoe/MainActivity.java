@@ -174,9 +174,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             for (int i = 1 ; i < recordPlayerMove.length; i++) {
                 if(recordPlayerMove[i] == 0){
                     imageViews[i].setImageResource(R.drawable.circle_icon);
+                    imageViews[i].setScaleX(0.8f);
+                    imageViews[i].setScaleY(0.8f);
                 }
                 if(recordPlayerMove[i] == 1){
                     imageViews[i].setImageResource(R.drawable.cross_icon);
+                    imageViews[i].setScaleX(0.8f);
+                    imageViews[i].setScaleY(0.8f);
                 }
             }
         }
@@ -222,6 +226,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         changeBgBtn.setVisibility(View.INVISIBLE);
         signOutBtn.setVisibility(View.INVISIBLE);
         Toast.makeText(MainActivity.this, "Now you signed out", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(MainActivity.this,LogPlayerName.class);
+        startActivity(intent);
     }
 
     /**
